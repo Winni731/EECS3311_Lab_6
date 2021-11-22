@@ -11,7 +11,7 @@ import view.ConverterPanel;
 public class MenubarListener implements ActionListener {
     //	private FeetConversionArea feetArea;
 //	private MeterConversionArea meterArea;
-    private ConverterPanel panel;
+    private final ConverterPanel panel;
 
     public MenubarListener(ConverterPanel converterPanel) {
         // TODO Auto-generated constructor stub
