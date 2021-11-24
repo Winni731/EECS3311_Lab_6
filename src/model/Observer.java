@@ -1,7 +1,5 @@
 package model;
 
 public interface Observer {
-
-    public void update(String figure);
-
+    void update(String figure);
 }

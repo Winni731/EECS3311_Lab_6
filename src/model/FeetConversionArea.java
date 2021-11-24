@@ -9,7 +9,7 @@ import javax.swing.JTextArea;
 public class FeetConversionArea implements Observer {
     private static final Color GR = Color.green;
     private final JTextArea textArea;
-    Subject subject;
+    private Subject subject;
 
     public FeetConversionArea(int upperX, int upperY, int rows, int cols, Subject subject) {
         super();

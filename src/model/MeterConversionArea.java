@@ -9,7 +9,7 @@ import java.awt.Color;
 public class MeterConversionArea implements Observer {
     private static final Color og = Color.orange;
     private JTextArea textArea;
-    Subject subject;
+    private Subject subject;
 
     public MeterConversionArea(int upperX, int upperY, int rows, int cols, Subject subject) {
         super();

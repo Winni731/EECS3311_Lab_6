@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import model.FeetConversionArea;
 import model.MeterConversionArea;
 
+import model.ValueToConvert;
 import view.ConverterPanel;
 
 public class MenubarListener implements ActionListener {
@@ -25,12 +26,13 @@ public class MenubarListener implements ActionListener {
 
 //        if (e.getActionCommand() != null) {
         String text = getPanel().getCentimetersConversionArea().getTextArea().getText();
+        ValueToConvert valueToConvert = new ValueToConvert();
 
         try {
             System.out.println(text);
-            double data = Double.parseDouble(text);
-            String meter = Double.toString(data / 100);
-            String feet = Double.toString(data / 30.48);
+//            double data = Double.parseDouble(text);
+            String meter = valueToConvert.cmToMeter(text);
+            String feet = valueToConvert.cmToFeet(text);
             panel.getMeterConversionArea().SetText(meter + " m");
             panel.getFeetConversionArea().SetText(feet + " ft");
         } catch (NumberFormatException nfe) {

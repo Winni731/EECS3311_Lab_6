@@ -5,22 +5,24 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CentimetersConversionArea implements Subject {
+public class CentimetersConversionArea implements Observer {
 
     private static final Color YL = Color.yellow;
-    private JTextArea textArea;
-    protected List<Observer> observers = new ArrayList<>();
+    private final JTextArea textArea;
+    private Subject subject;
 
-    public CentimetersConversionArea(int upperX, int upperY, int rows, int cols) {
+    public CentimetersConversionArea(int upperX, int upperY, int rows, int cols, Subject subject) {
         super();
         textArea = new JTextArea("0", rows, cols);
         textArea.setBounds(upperX, upperY, rows, cols);
         textArea.setBackground(Color.yellow);
         textArea.setSize(240, 240);
+        this.subject = subject;
+        this.subject.add(this);
     }
 
     public JTextArea getTextArea() {
-        notify(this.textArea.getText());
+//        notify(this.textArea.getText());
         return this.textArea;
     }
 
@@ -33,17 +35,7 @@ public class CentimetersConversionArea implements Subject {
     }
 
     @Override
-    public synchronized void add(Observer observer) {
-        observers.add(observer);
-    }
+    public void update(String figure) {
 
-    @Override
-    public synchronized void remove(Observer observer) {
-        observers.remove(observer);
-    }
-
-    @Override
-    public void notify(String figure) {
-        observers.forEach(observer -> observer.update(figure));
     }
 }
