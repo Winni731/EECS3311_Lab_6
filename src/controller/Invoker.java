@@ -2,9 +2,9 @@ package controller;
 
 public class Invoker {
 	
-	InterfaceCommand update;
+	Command update;
 	
-	public Invoker(InterfaceCommand update) {
+	public Invoker(Command update) {
 		this.update = update;
 	}
 	

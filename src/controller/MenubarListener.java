@@ -3,9 +3,6 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import model.FeetConversionArea;
-import model.MeterConversionArea;
-
 import model.ValueToConvert;
 import view.ConverterPanel;
 
@@ -21,20 +18,40 @@ public class MenubarListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        // TODO Auto-generated method stub
-        //panel = new ConverterPanel();
 
-//        if (e.getActionCommand() != null) {
         String text = getPanel().getCentimetersConversionArea().getTextArea().getText();
         ValueToConvert valueToConvert = new ValueToConvert();
+        
 
         try {
             System.out.println(text);
-//            double data = Double.parseDouble(text);
+
+            ReadRequest read;
+            WriteRequest write;
+            Invoker invoker;
+
             String meter = valueToConvert.cmToMeter(text);
+            Request meterRequest = new Request(text, meter + " m");
+            read = new ReadRequest(meterRequest);
+            invoker = new Invoker(read);
+            invoker.clickUpdate();
+
             String feet = valueToConvert.cmToFeet(text);
+            Request feetRequest = new Request(text, feet + " ft");
+            read = new ReadRequest(feetRequest);
+            invoker = new Invoker(read);
+            invoker.clickUpdate();
+            
+            write = new WriteRequest(meterRequest);
+            invoker = new Invoker(write);
             panel.getMeterConversionArea().SetText(meter + " m");
+            invoker.clickUpdate();
+
+            write = new WriteRequest(feetRequest);
+            invoker = new Invoker(write);
             panel.getFeetConversionArea().SetText(feet + " ft");
+            invoker.clickUpdate();
+
         } catch (NumberFormatException nfe) {
             System.out.println(nfe);
         }

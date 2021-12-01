@@ -1,7 +1,5 @@
 package controller;
 
-public interface InterfaceCommand {
-	
+public interface Command {
 	public void execute();
-
 }

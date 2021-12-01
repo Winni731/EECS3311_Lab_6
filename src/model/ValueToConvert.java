@@ -34,6 +34,7 @@ public class ValueToConvert implements Subject {
     @Override
     public void notify(String figure) {
         observers.forEach(observer -> observer.update(figure));
+        observers.forEach(observer -> observer.update(figure));
     }
 
 }
