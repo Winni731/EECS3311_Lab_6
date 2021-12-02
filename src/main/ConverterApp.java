@@ -11,6 +11,9 @@ import javax.swing.*;
  * 	and display them in corresponding views.*/
 public class ConverterApp {
 	/**
+	 * This main method runs as the ConverterApp which shows a GUI that can display 3 color fields,
+	 * 			when centimeter value entered, the corresponding feet value and meter value will be
+	 * 			shown on the fields when Alt+F or save input button is pressed.
 	 * invariants: None
 	 * Preconditions: None 
 	 * Postconditions: shows a GUI containing three color areas which can convert a centimeter value to 
