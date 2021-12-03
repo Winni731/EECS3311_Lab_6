@@ -12,11 +12,11 @@ public class WriteRequest implements Command {
     /**
      * This is the default constructor which initializes the writeRequest object
      * 
-     * invarants: none
+     * invariants: none
      * preconditions: none
      * postconditions: the writeRequest object is initialized
      * 
-     * @param writeRequest
+     * @param writeRequest the write action request
      */
     public WriteRequest(Request writeRequest) {
         this.writeRequest = writeRequest;
