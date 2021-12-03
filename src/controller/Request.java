@@ -17,8 +17,8 @@ public class Request {
 	 * preconditions: none
 	 * postconditions: the centimeters and convertedValue objects are initialized
 	 * 
-	 * @param centimeters
-	 * @param convertedValue
+	 * @param centimeters the centimeter value String object
+	 * @param convertedValue the converted value String object
 	 */
 	public Request(String centimeters, String convertedValue) {
 		this.centimeters = centimeters;
@@ -30,7 +30,7 @@ public class Request {
 	 * 
 	 * invariants: none
 	 * preconditions: none
-	 * postconditions: the status of the read request is ouput to the console
+	 * postconditions: the status of the read request is output to the console
 	 */
 	public void read() {
 		System.out.println(centimeters + " cm will be converted to " + convertedValue);
@@ -41,7 +41,7 @@ public class Request {
 	 * 
 	 * invariants: none
 	 * preconditions: none
-	 * postconditions: the status of the write request is ouput to the console
+	 * postconditions: the status of the write request is output to the console
 	 */
 	public void write() {
 		System.out.println(convertedValue + " has been written to the model");
