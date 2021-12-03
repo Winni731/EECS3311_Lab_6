@@ -12,11 +12,11 @@ public class ReadRequest implements Command {
     /**
      * This is the default constructor which initializes the readRequest object
      * 
-     * invarants: none
+     * invariants: none
      * preconditions: none
      * postconditions: the readRequest object is initialized
      * 
-     * @param readRequest
+     * @param readRequest the read action request
      */
     public ReadRequest(Request readRequest) {
         this.readRequest = readRequest;
