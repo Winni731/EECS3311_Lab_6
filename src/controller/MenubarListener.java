@@ -6,23 +6,47 @@ import java.awt.event.ActionListener;
 import model.ValueToConvert;
 import view.ConverterPanel;
 
+/**
+ * This class primarily manages the action that is taken when the save input centimeters
+ * menu option is clicked or is called via the keyboard shortcut
+ */
 public class MenubarListener implements ActionListener {
-    //	private FeetConversionArea feetArea;
-//	private MeterConversionArea meterArea;
+    /**
+     * The ConverterPanel object 
+     */
     private final ConverterPanel panel;
 
+    /**
+     * This is the default constructor which initializes the panel object
+     * 
+     * invariants: none
+     * preconditions: none
+     * postconditions: the panel object is initialized
+     * 
+     * @param converterPanel
+     */
     public MenubarListener(ConverterPanel converterPanel) {
-        // TODO Auto-generated constructor stub
         this.panel = converterPanel;
     }
 
+    /**
+     * This method reads data from the CentimetersConversionArea and writes the converted
+     * value to the respective conversion area. During the reading/writing, the requests
+     * output their current status on the models conversion status
+     * 
+     * invariants: none
+     * preconditions: the Save input centimeters menu option must be called
+     * postconditions: the FeetConversionArea and MeterConversionArea text is updated
+     * 
+     * @param e the ActionEvent
+     * @throws NumberFormatException if the input string is invalid
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
 
         String text = getPanel().getCentimetersConversionArea().getTextArea().getText();
         ValueToConvert valueToConvert = new ValueToConvert();
         
-
         try {
             System.out.println(text);
 
@@ -57,6 +81,15 @@ public class MenubarListener implements ActionListener {
         }
     }
 
+    /**
+     * This method returns the ConverterPanel object
+     * 
+     * invariants: none
+     * preconditions: none
+     * postconditions: the panel object is returned
+     * 
+     * @return ConverterPanel object
+     */
     public ConverterPanel getPanel() {
         return this.panel;
     }
