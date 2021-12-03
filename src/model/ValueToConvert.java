@@ -10,7 +10,7 @@ public class ValueToConvert implements Subject {
     /**
      * A List of type Observer used for keeping track of the total observers
      */
-    protected List<Observer> observers = new ArrayList<>();
+    protected List<Observer> observers = new ArrayList<Observer>();; 
     
     protected MeterConversionArea meterArea;
     protected FeetConversionArea feetArea;
@@ -29,6 +29,10 @@ public class ValueToConvert implements Subject {
     	return feetArea;
     }
     
+    public List<Observer> getObservers() {
+    	return this.observers;
+    }
+    
 
     /**
      * This method converts the centimeter value to meters
@@ -44,6 +48,7 @@ public class ValueToConvert implements Subject {
         double data = Double.parseDouble(text);
    //     double old_data = Double.parseDouble(getMeterArea());
         System.out.printf("\nMeterArea: %s, TextValue: %s\n", meterArea.getTextArea().getText(), text);
+    //    meterArea.update(text);
         notify(text);
         return Double.toString(data / 100);
     }
@@ -61,6 +66,8 @@ public class ValueToConvert implements Subject {
     public String cmToFeet(String text) {
         double data = Double.parseDouble(text);
         System.out.printf("\nFeetArea: %s, TextValue: %s\n", feetArea.getTextArea().getText(), text);
+      //  System.out.print(observers.size());
+     //   feetArea.update(text);
         notify(text);
         return Double.toString(data / 30.48);
     }
@@ -74,7 +81,7 @@ public class ValueToConvert implements Subject {
      */
     @Override
     public synchronized void add(Observer observer) {
-        observers.add(observer);
+        this.observers.add(observer);
     }
 
     /**
@@ -86,7 +93,7 @@ public class ValueToConvert implements Subject {
      */
     @Override
     public synchronized void remove(Observer observer) {
-        observers.remove(observer);
+        this.observers.remove(observer);
     }
 
     /**
@@ -98,7 +105,15 @@ public class ValueToConvert implements Subject {
      */
     @Override
     public void notify(String figure) {
-        observers.forEach(observer -> observer.update(figure));
+    	System.out.println("I am here");
+    //	observers.add(feetArea);
+    	System.out.println(((ValueToConvert) (meterArea.getSubject())).getObservers().size());
+//    	for (int i=0; i< getObservers().size(); i++) {
+//    		System.out.println("here: "+i);
+//    	}
+    	
+    	((ValueToConvert) meterArea.getSubject()).getObservers().forEach(observer -> observer.update(figure));
+     //   observers.update(figure);
     }
 
 }

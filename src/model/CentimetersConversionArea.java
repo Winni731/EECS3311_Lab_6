@@ -44,7 +44,7 @@ public class CentimetersConversionArea implements Observer {
         textArea.setBackground(YL);
         textArea.setSize(240, 240);
         this.subject = subject;
-        this.subject.add(this);
+     //   this.subject.add(this);
     }
 
     /**

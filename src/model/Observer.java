@@ -1,5 +1,7 @@
 package model;
 
+import javax.swing.JTextArea;
+
 /**
  * The Observer interface used to update each conversion area
  */
@@ -14,4 +16,5 @@ public interface Observer {
      * @param figure the String value used to update the text area
      */
     void update(String figure);
+    
 }

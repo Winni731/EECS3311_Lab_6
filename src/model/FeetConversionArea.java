@@ -19,7 +19,7 @@ public class FeetConversionArea implements Observer {
     /**
      * The Subject interface used to add this conversion area observer
      */
-    private Subject subject;
+    protected Subject subject;
 
     /**
      * This is the default constructor for this class which sets up all
@@ -43,7 +43,8 @@ public class FeetConversionArea implements Observer {
         textArea.setEditable(false);
         textArea.setSize(240, 240);
         this.subject = subject;
-        this.subject.add(this);
+        ((ValueToConvert) this.subject).getObservers().add(this);
+        System.out.print("Subject: "+((ValueToConvert) subject).getObservers()+"/n");
     }
 
     /**
@@ -83,6 +84,10 @@ public class FeetConversionArea implements Observer {
      */
     public void SetText(String text) {
         textArea.setText(text);
+    }
+    
+    public Subject getSubject() {
+    	return this.subject;
     }
 
     @Override
