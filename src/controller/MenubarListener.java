@@ -23,7 +23,7 @@ public class MenubarListener implements ActionListener {
      * preconditions: none
      * postconditions: the panel object is initialized
      * 
-     * @param converterPanel
+     * @param converterPanel the panel that MenubarListener uses
      */
     public MenubarListener(ConverterPanel converterPanel) {
         this.panel = converterPanel;
@@ -50,9 +50,9 @@ public class MenubarListener implements ActionListener {
         try {
             System.out.println(text);
 
-            ReadRequest read;
-            WriteRequest write;
-            Invoker invoker;
+            ReadRequest read;	// read action
+            WriteRequest write;	// write action
+            Invoker invoker;	// the invoker
 
             String meter = valueToConvert.cmToMeter(text);
             Request meterRequest = new Request(text, meter + " m");
