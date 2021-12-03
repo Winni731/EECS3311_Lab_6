@@ -88,6 +88,6 @@ public class CentimetersConversionArea implements Observer {
 
     @Override
     public void update(String figure) {
-
+    	System.out.printf("'%s' received notification from figure: '%s'", figure);
     }
 }

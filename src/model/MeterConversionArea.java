@@ -87,7 +87,7 @@ public class MeterConversionArea implements Observer {
 
     @Override
     public void update(String figure) {
-
+    	System.out.printf("MeterConversionArea received notification from ValueToConvert, value: '%s'", figure);
     }
 
 }

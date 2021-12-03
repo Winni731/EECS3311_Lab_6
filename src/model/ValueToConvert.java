@@ -4,13 +4,31 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * abstract class extends JTextArea implements property change listener
+ * This class extends JTextArea implements property change listener
  */
 public class ValueToConvert implements Subject {
     /**
      * A List of type Observer used for keeping track of the total observers
      */
     protected List<Observer> observers = new ArrayList<>();
+    
+    protected MeterConversionArea meterArea;
+    protected FeetConversionArea feetArea;
+    
+    public ValueToConvert(MeterConversionArea meterArea, FeetConversionArea feetArea) {
+    	super();
+    	this.meterArea = meterArea;
+    	this.feetArea = feetArea;
+    }
+    
+    public MeterConversionArea getMeterArea() {
+    	return meterArea;
+    }
+    
+    public FeetConversionArea getFeetArea() {
+    	return feetArea;
+    }
+    
 
     /**
      * This method converts the centimeter value to meters
@@ -24,6 +42,8 @@ public class ValueToConvert implements Subject {
      */
     public String cmToMeter(String text) {
         double data = Double.parseDouble(text);
+   //     double old_data = Double.parseDouble(getMeterArea());
+        System.out.printf("\nMeterArea: %s, TextValue: %s\n", meterArea.getTextArea().getText(), text);
         notify(text);
         return Double.toString(data / 100);
     }
@@ -40,6 +60,7 @@ public class ValueToConvert implements Subject {
      */
     public String cmToFeet(String text) {
         double data = Double.parseDouble(text);
+        System.out.printf("\nFeetArea: %s, TextValue: %s\n", feetArea.getTextArea().getText(), text);
         notify(text);
         return Double.toString(data / 30.48);
     }

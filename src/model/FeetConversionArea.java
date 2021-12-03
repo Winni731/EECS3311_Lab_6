@@ -87,7 +87,7 @@ public class FeetConversionArea implements Observer {
 
     @Override
     public void update(String figure) {
-
+    	System.out.printf("FeetConversionArea received notification from ValueToConvert, value: '%s'", figure);
     }
 
 }

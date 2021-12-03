@@ -45,7 +45,7 @@ public class MenubarListener implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         String text = getPanel().getCentimetersConversionArea().getTextArea().getText();
-        ValueToConvert valueToConvert = new ValueToConvert();
+        ValueToConvert valueToConvert = new ValueToConvert(getPanel().getMeterConversionArea(), getPanel().getFeetConversionArea());
         
         try {
             System.out.println(text);
