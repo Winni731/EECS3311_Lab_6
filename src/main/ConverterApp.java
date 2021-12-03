@@ -32,7 +32,7 @@ public class ConverterApp {
         converterFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	// set close button
         converterFrame.setSize(620, 560);	// set frame size
         converterFrame.setLocationRelativeTo(null);
-        converterFrame.setResizable(false);	// not resizable
+        converterFrame.setResizable(false);	// cannot change size
         converterFrame.setVisible(true);	
     }
 }

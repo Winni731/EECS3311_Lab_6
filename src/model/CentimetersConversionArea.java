@@ -18,10 +18,7 @@ public class CentimetersConversionArea {
      * The text area used for user input
      */
     private final JTextArea textArea;
-    /**
-     * The Subject interface used to add this conversion area observer
-     */
-//    private Subject subject;
+
 
     /**
      * This is the default constructor for this class which sets up all
@@ -35,7 +32,6 @@ public class CentimetersConversionArea {
      * @param upperY the upper left Y position
      * @param rows the amount of rows
      * @param cols the amount of columns
-     * @param subject the Subject interface used to add an Observer to
      */
     public CentimetersConversionArea(int upperX, int upperY, int rows, int cols) {
         super();
@@ -43,7 +39,6 @@ public class CentimetersConversionArea {
         textArea.setBounds(upperX, upperY, rows, cols);
         textArea.setBackground(YL);
         textArea.setSize(240, 240);
-//        this.subject = subject;
     }
 
     /**

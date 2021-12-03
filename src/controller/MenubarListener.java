@@ -44,24 +44,24 @@ public class MenubarListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        String text = getPanel().getCentimetersConversionArea().getTextArea().getText();
+        String text = getPanel().getCentimetersConversionArea().getTextArea().getText(); // get the text value from CentimetersConversionArea
         ValueToConvert valueToConvert = new ValueToConvert(getPanel().getMeterConversionArea(), getPanel().getFeetConversionArea());
-        valueToConvert.tweet(text);
         
         try {
-            System.out.println(text);
+            System.out.println("TextValue from CentimetersConversionArea is: " + text + "\n");
+            valueToConvert.tweet(text);	// notify the changes to Observers
 
             ReadRequest read;	// read action
             WriteRequest write;	// write action
             Invoker invoker;	// the invoker
 
-            String meter = valueToConvert.cmToMeter(text);
+            String meter = valueToConvert.cmToMeter(text);	// convert value to meter
             Request meterRequest = new Request(text, meter + " m");
             read = new ReadRequest(meterRequest);
             invoker = new Invoker(read);
             invoker.clickUpdate();
 
-            String feet = valueToConvert.cmToFeet(text);
+            String feet = valueToConvert.cmToFeet(text);	// convert value to feet
             Request feetRequest = new Request(text, feet + " ft");
             read = new ReadRequest(feetRequest);
             invoker = new Invoker(read);

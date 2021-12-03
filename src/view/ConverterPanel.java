@@ -14,10 +14,6 @@ import java.util.ArrayList;
  * This class extends JPanel which represents a ConverterPanel type
  */
 public class ConverterPanel extends JPanel {
-	/**
-	 * The font used for the UI
-	 */
-    private final Font uiFont;
     /**
      * The conversion area for feet value
      */
@@ -48,7 +44,6 @@ public class ConverterPanel extends JPanel {
      */
     public ConverterPanel() {
         panel = new JPanel();
-        uiFont = new Font("UI", Font.BOLD, 15);
         valueToConvert = new ValueToConvert(meterArea, feetArea);
         centiMeterArea = new CentimetersConversionArea(150, 240, 15, 25);	// create centimeter conversion area
         feetArea = new FeetConversionArea(50, 0, 15, 25, valueToConvert);	// create feet conversion area

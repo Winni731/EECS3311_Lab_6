@@ -85,13 +85,29 @@ public class MeterConversionArea implements Observer {
         textArea.setText(text);
     }
     
+    /**
+     * This method gets the subject attribute for this conversion area
+     * 
+     * invariants: none
+     * preconditions: none
+     * postconditions: gets the subject attribute for this conversion area
+     * 
+     * @return the subject attribute
+     */
     public Subject getSubject() {
     	return this.subject;
     }
-
+    
+    /**
+     * This method shows the update message for this conversion area
+     * 
+     * invariants: none
+     * preconditions: none
+     * postconditions: shows the update message
+     */
     @Override
     public void update(String figure) {
-    	System.out.println("MeterConversionArea received notification from ValueToConvert, value: "+figure);
+    	System.out.println("MeterConversionArea received notification from ValueToConvert, TextValue: "+figure);
     }
 
 }

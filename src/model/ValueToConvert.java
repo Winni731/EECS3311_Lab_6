@@ -4,39 +4,89 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * This class extends JTextArea implements property change listener
+ * This class implements Subject interface that represents a handler for observers in the observer pattern
  */
 public class ValueToConvert implements Subject {
     /**
      * A List of type Observer used for keeping track of the total observers
      */
     protected List<Observer> observers = new ArrayList<Observer>();; 
-    
+    /**
+     * the MeterConversionArea observer object
+     */
     protected MeterConversionArea meterArea;
+    /**
+     * the FeetConversionArea observer object
+     */
     protected FeetConversionArea feetArea;
     
+    /**
+     * This is the constructor that contains MeterConversionArea and FeetConversionArea as followers
+     * 
+     * invariants: none
+     * preconditions: none
+     * postconditions: instantiates a ValueToConvert handler object
+     * 
+     * @param meterArea the MeterConversionArea observer object
+     * @param feetArea the FeetConversionArea observer object
+     */
     public ValueToConvert(MeterConversionArea meterArea, FeetConversionArea feetArea) {
     	super();
     	this.meterArea = meterArea;
     	this.feetArea = feetArea;
     }
     
+    /**
+     * This is the getter method that gets the MeterConversionArea
+     * 
+     * invariants: none
+     * preconditions: none
+     * postconditions: gets the MeterConversionArea
+     * 
+     * @return the MeterConversionArea
+     */
     public MeterConversionArea getMeterArea() {
     	return meterArea;
     }
     
+    /**
+     * This is the getter method that gets the FeetConversionArea
+     * 
+     * invariants: none
+     * preconditions: none
+     * postconditions: gets the FeetConversionArea
+     * 
+     * @return the FeetConversionArea
+     */
     public FeetConversionArea getFeetArea() {
     	return feetArea;
     }
     
+    /**
+     * This is the getter method that gets the observer list
+     * 
+     * invariants: none
+     * preconditions: none
+     * postconditions: gets the observer list
+     * 
+     * @return the observer list
+     */
     public List<Observer> getObservers() {
     	return this.observers;
     }
     
+    /**
+     * This method does the notify action
+     * 
+     * invariants: none
+     * preconditions: none
+     * postconditions: notify followers for state updates
+     * 
+     * @param figure the TextValue that needs to be notified to followers
+     */
     public void tweet(String figure) {
     	notify(figure);
-    }
-    
+    }   
 
     /**
      * This method converts the centimeter value to meters
