@@ -44,7 +44,7 @@ public class Request {
 	 * postconditions: the status of the write request is output to the console
 	 */
 	public void write() {
-		System.out.println(convertedValue + " has been written to the model");
+		System.out.println("\n" + convertedValue + " has been written to the model");
 	}
 
 }

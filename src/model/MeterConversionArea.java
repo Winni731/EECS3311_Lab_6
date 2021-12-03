@@ -43,8 +43,7 @@ public class MeterConversionArea implements Observer {
         textArea.setEditable(false);
         textArea.setSize(240, 240);
         this.subject = subject;
-        ((ValueToConvert) this.subject).getObservers().add(this);
-        System.out.print("Subject: "+((ValueToConvert) subject).getObservers());
+        this.subject.add(this);
     }
 
     /**
@@ -92,7 +91,7 @@ public class MeterConversionArea implements Observer {
 
     @Override
     public void update(String figure) {
-    	System.out.printf("MeterConversionArea received notification from ValueToConvert, value: '%s'", figure);
+    	System.out.println("MeterConversionArea received notification from ValueToConvert, value: "+figure);
     }
 
 }

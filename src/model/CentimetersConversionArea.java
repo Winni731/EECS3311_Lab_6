@@ -5,10 +5,10 @@ import java.awt.Color;
 
 /**
  * This class represents the yellow centimeters conversion box. This is the area where the user
- * enters the amount of centimeters to convert to feet and meters. It makes use of the Observer
- * interface which deals with the conversion of the values.
+ * enters the amount of centimeters to convert to feet and meters. It provides the conversion value
+ * for ValueToConvert class to handle observers.
  */
-public class CentimetersConversionArea implements Observer {
+public class CentimetersConversionArea {
 
     /**
      * The permanent color used for the area
@@ -21,7 +21,7 @@ public class CentimetersConversionArea implements Observer {
     /**
      * The Subject interface used to add this conversion area observer
      */
-    private Subject subject;
+//    private Subject subject;
 
     /**
      * This is the default constructor for this class which sets up all
@@ -37,14 +37,13 @@ public class CentimetersConversionArea implements Observer {
      * @param cols the amount of columns
      * @param subject the Subject interface used to add an Observer to
      */
-    public CentimetersConversionArea(int upperX, int upperY, int rows, int cols, Subject subject) {
+    public CentimetersConversionArea(int upperX, int upperY, int rows, int cols) {
         super();
         textArea = new JTextArea("0", rows, cols);
         textArea.setBounds(upperX, upperY, rows, cols);
         textArea.setBackground(YL);
         textArea.setSize(240, 240);
-        this.subject = subject;
-     //   this.subject.add(this);
+//        this.subject = subject;
     }
 
     /**
@@ -86,8 +85,4 @@ public class CentimetersConversionArea implements Observer {
         textArea.setText(text);
     }
 
-    @Override
-    public void update(String figure) {
-    	System.out.printf("'%s' received notification from figure: '%s'", figure);
-    }
 }

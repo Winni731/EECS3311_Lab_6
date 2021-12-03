@@ -33,6 +33,10 @@ public class ValueToConvert implements Subject {
     	return this.observers;
     }
     
+    public void tweet(String figure) {
+    	notify(figure);
+    }
+    
 
     /**
      * This method converts the centimeter value to meters
@@ -46,10 +50,7 @@ public class ValueToConvert implements Subject {
      */
     public String cmToMeter(String text) {
         double data = Double.parseDouble(text);
-   //     double old_data = Double.parseDouble(getMeterArea());
-        System.out.printf("\nMeterArea: %s, TextValue: %s\n", meterArea.getTextArea().getText(), text);
-    //    meterArea.update(text);
-        notify(text);
+        System.out.printf("\nMeterArea Original Value: %s, TextValue Received: %s\n", meterArea.getTextArea().getText(), text);
         return Double.toString(data / 100);
     }
 
@@ -65,10 +66,7 @@ public class ValueToConvert implements Subject {
      */
     public String cmToFeet(String text) {
         double data = Double.parseDouble(text);
-        System.out.printf("\nFeetArea: %s, TextValue: %s\n", feetArea.getTextArea().getText(), text);
-      //  System.out.print(observers.size());
-     //   feetArea.update(text);
-        notify(text);
+        System.out.printf("\nFeetArea Original Value: %s, TextValue Received: %s\n", feetArea.getTextArea().getText(), text);
         return Double.toString(data / 30.48);
     }
 
@@ -105,15 +103,7 @@ public class ValueToConvert implements Subject {
      */
     @Override
     public void notify(String figure) {
-    	System.out.println("I am here");
-    //	observers.add(feetArea);
-    	System.out.println(((ValueToConvert) (meterArea.getSubject())).getObservers().size());
-//    	for (int i=0; i< getObservers().size(); i++) {
-//    		System.out.println("here: "+i);
-//    	}
-    	
     	((ValueToConvert) meterArea.getSubject()).getObservers().forEach(observer -> observer.update(figure));
-     //   observers.update(figure);
     }
 
 }

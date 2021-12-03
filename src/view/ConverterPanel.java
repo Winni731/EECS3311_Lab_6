@@ -50,7 +50,7 @@ public class ConverterPanel extends JPanel {
         panel = new JPanel();
         uiFont = new Font("UI", Font.BOLD, 15);
         valueToConvert = new ValueToConvert(meterArea, feetArea);
-        centiMeterArea = new CentimetersConversionArea(150, 240, 15, 25, valueToConvert);	// create centimeter conversion area
+        centiMeterArea = new CentimetersConversionArea(150, 240, 15, 25);	// create centimeter conversion area
         feetArea = new FeetConversionArea(50, 0, 15, 25, valueToConvert);	// create feet conversion area
         meterArea = new MeterConversionArea(290, 0, 15, 25, valueToConvert);	// create meter conversion area
         panel.add(feetArea.getTextArea());	// add feet conversion area to panel
